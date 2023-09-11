@@ -7,7 +7,7 @@
 
 #define BUFFER_SIZE 1024 
 
-int main() {
+int main(int argc, const char** argv) {
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
     errif(sockfd == -1, "socket create error");
 

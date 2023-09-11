@@ -15,7 +15,7 @@ void setnonblocking(int fd){
     fcntl(fd, F_SETFL, fcntl(fd, F_GETFL) | O_NONBLOCK);
 }
 
-int main() {
+int main(int argc, const char** argv) {
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
     errif(sockfd == -1, "socket create error");
 
