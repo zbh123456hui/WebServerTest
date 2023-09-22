@@ -1,13 +1,3 @@
-/**
- * @file ThreadPool.h
- * @author 冯岳松 (yuesong-feng@foxmail.com)
- * @brief
- * @version 0.1
- * @date 2022-01-04
- *
- * @copyright Copyright (冯岳松) 2022
- *
- */
 #pragma once
 #include <condition_variable>  // NOLINT
 #include <functional>
@@ -55,7 +45,7 @@ auto ThreadPool::Add(F &&f, Args &&... args) -> std::future<typename std::result
       throw std::runtime_error("enqueue on stopped ThreadPool");
     }
 
-    tasks_.emplace_back([task]() { (*task)(); });
+    tasks_.emplace([task]() { (*task)(); });
   }
   condition_variable_.notify_one();
   return res;

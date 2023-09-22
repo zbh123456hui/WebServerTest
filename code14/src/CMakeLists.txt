@@ -1,2 +1,4 @@
-file(GLOB_RECURSE pine_sources ${PROJECT_SOURCE_DIR}/src/*.cpp)
-add_library(pine_shared SHARED ${pine_sources})
+include_directories(./include)
+aux_source_directory(. DIR_LIB_SRCS)
+aux_source_directory(./include DIR_INC_SRCS) 
+add_library(Server ${DIR_LIB_SRCS})
